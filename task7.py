@@ -10,3 +10,4 @@ for i in range(1000, 10000):
     if res == 1418:
         print(i)
         break
+# Ответ 1599
