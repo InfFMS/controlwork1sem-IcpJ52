@@ -42,3 +42,29 @@
 #
 # -----------------------------------------------------------------------------
 # Напишите программу ниже:
+purchase_price = float(input('Цена покупки облигации: '))
+redemption_price = float(input('Цена погашения облигации: '))
+coupon = float(input('Сумма разовой купонной выплаты: '))
+coupon_period = float(input('Периодичность выплаты купонов (в месяцах): '))
+broker_commission = float(input('Комиссия брокера (в процентах): '))
+duration = float(input('Период до погашения облигации (в месяцах): '))
+
+# 1. Комиссия на покупку
+commission = purchase_price * (broker_commission / 100)
+
+# 2. Полная цена покупки
+full_purchase_price = purchase_price + commission
+
+# 3. Общий купонный доход
+coupon_income = coupon * (duration / coupon_period)
+
+# 4. Общий доход до налогообложения
+total_income = redemption_price + coupon_income - full_purchase_price
+
+# 5. Налог на доход
+tax = total_income * 0.13 if total_income > 0 else 0
+
+# 6. Чистая доходность (в процентах)
+profitability = ((total_income - tax) / full_purchase_price) * 100
+
+print(f'Чистая доходность облигации: {profitability:.2f}%')
